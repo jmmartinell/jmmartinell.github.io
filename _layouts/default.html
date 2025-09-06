@@ -11,10 +11,6 @@
         {% endif %}
     </title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-    <!-- <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"> -->
-    <!-- Carga el CSS del tema Hacker -->
-    <!-- <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css"> -->
-    <!-- Favicon (opcional) -->
     <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
 </head>
 <body>
