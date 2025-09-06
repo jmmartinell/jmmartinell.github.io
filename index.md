@@ -1,11 +1,21 @@
 ---
 layout: default
-title: Inicio
+title: Inicio - [Nombre de tu Curso]
 ---
 
-# ¡Bienvenidos!
+# Bienvenidos al Sitio del Curso
 
-Este es el sitio web del profesor. Aquí encontrarán materiales y recursos importantes.
+Este es el punto central para todos los materiales de [Nombre del Curso].
 
-- [Acerca de](/about.html)
-- [Temario de Matemáticas](/matematicas.html)
+## Acceso Rápido
+
+*   **[Ver Dosificación Completa](/dosificacion.html)**: El plan de todo el curso.
+*   **[Lista de Todas las Clases](/clases.html)**: Accede a cualquier clase planificada.
+*   **[Preguntas Frecuentes Generales](/preguntas-frecuentes.html)**:
+
+## Clases Recientes
+{% assign clases_ordenadas = site.clases | sort: 'fecha' %}
+{% for clase in clases_ordenadas limit:5 %}
+*   [{{ clase.title }}]({{ clase.url }})
+{% endfor %}
+... [más enlaces]

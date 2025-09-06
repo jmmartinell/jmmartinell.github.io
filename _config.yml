@@ -1,5 +1,39 @@
-title: "Mi Sitio Web" # Cambia por tu título
-description: "Sitio web para mis estudiantes" # Cambia por tu descripción
+# _config.yml
+
+title: "Sitio del Profesor [Tu Nombre]" # El título de tu sitio
+description: "Materiales, dosificación y recursos para mis estudiantes." # Una descripción breve
+email: "tu.email@ejemplo.com" # Tu email de contacto para el footer
+baseurl: "" # Déjalo vacío si tu sitio está en la raíz (username.github.io)
+url: "https://jmmartinell.github.io" # Reemplaza con tu URL real
+
+# La configuración del tema y las colecciones que ya habíamos añadido
 theme: jekyll-theme-hacker
-baseurl: "" # Déjalo vacío si el sitio está en la raíz
-url: "https://jmmartinell.github.io" # Tu URL base
+collections:
+  clases:
+    output: true
+    permalink: /clases/:name.html
+  notas:
+    output: true
+    permalink: /notas/:name.html
+  preguntas:
+    output: true
+    permalink: /preguntas/:name.html
+
+defaults:
+  - scope:
+      path: "_clases"
+      type: "clases"
+    values:
+      layout: "clase"
+      has_notes: true
+      has_questions: true
+  - scope:
+      path: "_notas"
+      type: "notas"
+    values:
+      layout: "default"
+  - scope:
+      path: "_preguntas"
+      type: "preguntas"
+    values:
+      layout: "default"

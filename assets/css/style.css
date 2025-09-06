@@ -1,0 +1,31 @@
+/* Mejoras de estilo para mejor organización */
+nav {
+    border-bottom: 1px solid #00ff00;
+    padding-bottom: 1rem;
+}
+
+.clase-lista {
+    border-left: 3px solid #00ff00;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.note {
+    background-color: #112211;
+    border: 1px solid #00ff00;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+th, td {
+    border: 1px solid #00ff00;
+    padding: 0.5rem;
+    text-align: left;
+}

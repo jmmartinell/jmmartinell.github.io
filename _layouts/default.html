@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% if page.title %}
+            {{ page.title }} | {{ site.title }}
+        {% else %}
+            {{ site.title }}
+        {% endif %}
+    </title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <!-- Carga el CSS del tema Hacker -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+    <!-- Favicon (opcional) -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+</head>
+<body>
+    <header>
+        <h1>{{ site.title }}</h1>
+        <p>{{ site.description }}</p>
+        
+        <!-- Menú de Navegación Principal -->
+        <nav>
+            <ul>
+                <li><a href="{{ site.baseurl }}/">Inicio</a></li>
+                <li><a href="{{ site.baseurl }}/dosificacion.html">Dosificación</a></li>
+                <li><a href="{{ site.baseurl }}/clases.html">Todas las Clases</a></li>
+                <!--
+                    Este menú se generará automáticamente cuando crees la página.
+                    <li><a href="{{ site.baseurl }}/preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+                -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Aquí se inserta el contenido específico de cada página -->
+        {{ content }}
+    </main>
+
+    <footer>
+        <hr>
+        <p>
+            <strong>Sitio del Profesor:</strong> {{ site.title }}<br>
+            <strong>Contácto:</strong> 
+            {% if site.email %}
+                <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+            {% else %}
+                (Configura tu email en _config.yml)
+            {% endif %}
+        </p>
+        <p>
+            <small>
+                Construido con <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> y 
+                el tema <a href="https://github.com/pages-themes/hacker" target="_blank">Hacker</a>. 
+                Alojado en <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+            </small>
+        </p>
+    </footer>
+</body>
+</html>
