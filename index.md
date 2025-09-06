@@ -1,21 +1,23 @@
 ---
 layout: default
-title: Inicio - [Nombre de tu Curso]
+title: Inicio - Informática
 ---
 
-# Bienvenidos al Sitio del Curso
+# Bienvenidos al Sitio del Curso de Informática
 
-Este es el punto central para todos los materiales de [Nombre del Curso].
+Este es el punto central para todos los materiales de la asignatura de Informática.
 
 ## Acceso Rápido
 
-*   **[Ver Dosificación Completa](/dosificacion.html)**: El plan de todo el curso.
-*   **[Lista de Todas las Clases](/clases.html)**: Accede a cualquier clase planificada.
-*   **[Preguntas Frecuentes Generales](/preguntas-frecuentes.html)**:
+* [Ver Dosificación Completa](/dosificacion.html)
+* [Lista de Todas las Clases](/clases.html)
+* [Preguntas Frecuentes Generales](/preguntas-frecuentes.html)
 
 ## Clases Recientes
-{% assign clases_ordenadas = site.clases | sort: 'fecha' %}
+
+{% assign clases_ordenadas = site.clases | sort: 'numero' %}
 {% for clase in clases_ordenadas limit:5 %}
-*   [{{ clase.title }}]({{ clase.url }})
+* [Clase {{ clase.numero }}: {{ clase.title }}]({{ clase.url }})
 {% endfor %}
-... [más enlaces]
+
+[Ver todas las clases](/clases.html)
