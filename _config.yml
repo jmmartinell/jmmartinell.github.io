@@ -1,0 +1,5 @@
+title: "Mi Sitio Web" # Cambia por tu título
+description: "Sitio web para mis estudiantes" # Cambia por tu descripción
+theme: jekyll-theme-hacker
+baseurl: "" # Déjalo vacío si el sitio está en la raíz
+url: "https://jmmartinell.github.io" # Tu URL base
