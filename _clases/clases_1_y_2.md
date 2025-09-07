@@ -21,12 +21,12 @@ title: Clases 1 y 2
 
 **2. Método y Técnica:**
 *   **Método:** Expositivo - Participativo
-*   **Técnica:** Lluvia de ideas, exposición dialogada y questioning.
+*   **Técnica:** Lluvia de ideas, exposición dialogada y preguntas.
 
 **3. Medios y Recursos:**
-*   Pizarra o rotafolio, marcadores.
-*   Computadora y proyector (TV) para mostrar una presentación simple.
-*   Fotocopia o proyección de la guía de evaluación (opcional).
+*   Pizarra.
+*   Computadora y proyector (TV).
+*   Fotocopia o proyección de la guía de evaluación.
 
 **4. Desarrollo de la Clase:**
 
@@ -52,8 +52,8 @@ title: Clases 1 y 2
 *   **Técnica:** Demostración práctica, contrastación de ejemplos.
 
 **3. Medios y Recursos:**
-*   Computadora con proyector (TV).
-*   Pizarra o rotafolio.
+*  Pizarra.
+*   Computadora y proyector (TV).
 *   Acceso a un sistema operativo (Windows/Linux) para demostración en vivo.
 
 **4. Desarrollo de la Clase:**
