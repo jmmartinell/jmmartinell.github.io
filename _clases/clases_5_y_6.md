@@ -5,7 +5,7 @@ title: Clases 5 y 6
 
 ### **Planificación de Clases – Etapa Propedéutica**
 **Asignatura:** Informática
-**Docente:** [Tu Nombre]
+**Docente:** José Manuel Martinell Reynaldo
 **Temática General:** Fundamentos de programación.
 
 ---
@@ -24,9 +24,8 @@ title: Clases 5 y 6
 *   **Técnica:** Análisis de situaciones cotidianas, ejemplificación y demostración guiada.
 
 **3. Medios y Recursos:**
-*   Pizarra o rotafolio.
-*   Marcadores de colores.
-*   Computadora y proyector para mostrar ejemplos simples de pseudocódigo.
+*   Pizarra.
+*   Computadora y proyector (TV) para mostrar ejemplos simples de pseudocódigo.
 
 **4. Desarrollo de la Clase:**
 
@@ -52,8 +51,8 @@ title: Clases 5 y 6
 *   **Técnica:** Analogías, demostración con diagramas de flujo y pseudocódigo.
 
 **3. Medios y Recursos:**
-*   Pizarra o rotafolio.
-*   Computadora y proyector.
+*   Pizarra.
+*   Computadora y proyector (TV).
 *   Presentación con diagramas de flujo simples.
 
 **4. Desarrollo de la Clase:**

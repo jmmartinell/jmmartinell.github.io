@@ -2,10 +2,9 @@
 layout: default
 title: Clases 7 y 8
 ---
-
 ### **Planificación de Clases – Etapa Propedéutica**
 **Asignatura:** Informática
-**Docente:** [Tu Nombre]
+**Docente:** José Manuel Martinell Reynaldo
 **Temática General:** Redes, seguridad informática y ética.
 
 ---
