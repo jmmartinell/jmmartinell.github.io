@@ -1,58 +1,34 @@
 ---
-layout: clase
-title: "Clase 1: Introducción a la asignatura. ¿Qué es un ordenador?"
-numero: 1
-fecha: 2024-02-01
-objetivos:
-  - Presentar la asignatura, su estructura, objetivos y sistema de evaluación.
-  - Definir el concepto de computadora u ordenador y diferenciar sus componentes fundamentales: hardware y software.
-metodo: Expositivo - Participativo
-tecnicas: 
-  - Lluvia de ideas
-  - Exposición dialogada
-  - Questioning
-medios:
-  - Pizarra o rotafolio
-  - Marcadores
-  - Computadora y proyector (TV)
-  - Fotocopia o proyección de la guía de evaluación (opcional)
-duracion: 45 minutos
-material_necesario:
-  - Libro de texto, Capítulo 1
-  - Calculadora
-  - Cuaderno de ejercicios
-enlaces:
-  - notas: /notas/01-notas-introduccion.html
-  - preguntas: /preguntas/01-preguntas-introduccion.html
-  - siguiente_clase: /clases/02-clase-software-sistemas-operativos.html
+layout: default
+title: Clases 1 y 2
 ---
 
-### Planificación de Clases – Etapa Propedéutica
-**Asignatura:** Informática  
-**Docente:** José Manuel Martinell Reynaldo  
+### **Planificación de Clases – Etapa Propedéutica**
+**Asignatura:** Informática
+**Docente:** José Manuel Martinell Reynaldo
 **Temática General:** Introducción a la asignatura. Conceptos básicos de informática.
 
 ---
 
 ### **CLASE # 1**
 
-**Tema:** Introducción a la asignatura. ¿Qué es un ordenador?  
+**Tema:** Introducción a la asignatura. ¿Qué es un ordenador?
 **Duración:** 45 minutos
 
-#### 1. Objetivo de la Clase:
-- Presentar la asignatura, su estructura, objetivos y sistema de evaluación.
-- Definir el concepto de computadora u ordenador y diferenciar sus componentes fundamentales: hardware y software.
+**1. Objetivo de la Clase:**
+*   Presentar la asignatura, su estructura, objetivos y sistema de evaluación.
+*   Definir el concepto de computadora u ordenador y diferenciar sus componentes fundamentales: hardware y software.
 
-#### 2. Método y Técnica:
-- **Método:** Expositivo - Participativo
-- **Técnica:** Lluvia de ideas, exposición dialogada y questioning.
+**2. Método y Técnica:**
+*   **Método:** Expositivo - Participativo
+*   **Técnica:** Lluvia de ideas, exposición dialogada y questioning.
 
-#### 3. Medios y Recursos:
-- Pizarra o rotafolio, marcadores.
-- Computadora y proyector (TV) para mostrar una presentación simple.
-- Fotocopia o proyección de la guía de evaluación (opcional).
+**3. Medios y Recursos:**
+*   Pizarra o rotafolio, marcadores.
+*   Computadora y proyector (TV) para mostrar una presentación simple.
+*   Fotocopia o proyección de la guía de evaluación (opcional).
 
-#### 4. Desarrollo de la Clase:
+**4. Desarrollo de la Clase:**
 
 | **Etapa** | **Tiempo** | **Actividades Docentes y Discentes** |
 | :--- | :--- | :--- |
@@ -63,9 +39,28 @@ enlaces:
 
 ---
 
-### Notas Adicionales:
-- Esta planificación está diseñada para una sesión de 45 minutos.
-- La tarea asignada servirá como transición hacia la siguiente clase sobre sistemas operativos.
-- Es recomendable tener preparada una presentación visual simple que refuerce los conceptos de hardware y software.
+### **CLASE # 2**
 
-[Ver notas detalladas de esta clase]({{ page.enlaces[0].notas }}) | [Ver preguntas y respuestas]({{ page.enlaces[0].preguntas }}) | [Siguiente clase: Clase 2]({{ page.enlaces[0].siguiente_clase }})
+**Tema:** Software, Sistemas Operativos y Gestión de Archivos.
+**Duración:** 45 minutos
+
+**1. Objetivo de la Clase:**
+*   Clasificar los tipos de software y caracterizar un sistema operativo, identificando sus funciones principales y sus representantes de software libre y propietario.
+
+**2. Método y Técnica:**
+*   **Método:** Expositivo - Demostrativo
+*   **Técnica:** Demostración práctica, contrastación de ejemplos.
+
+**3. Medios y Recursos:**
+*   Computadora con proyector (TV).
+*   Pizarra o rotafolio.
+*   Acceso a un sistema operativo (Windows/Linux) para demostración en vivo.
+
+**4. Desarrollo de la Clase:**
+
+| **Etapa** | **Tiempo** | **Actividades Docentes y Discentes** |
+| :--- | :--- | :--- |
+| **Inicio** | **5 min** | **Repaso de la clase anterior:** "¿Recuerdan qué es el hardware? ¿Y el software?" El docente recupera la tarea: "¿Qué sistemas operativos encontraron?" (Se listan en la pizarra: Android, iOS, macOS, Linux). |
+| **Introducción** | **5 min** | **Orientación hacia el Objetivo (OHO):** "Hoy vamos a profundizar en el software. Aprenderemos a clasificarlo y descubriremos por qué el Sistema Operativo es el software más importante de todos." |
+| **Desarrollo** | **25 min** | **<u>Bloque 1: Tipos de Software (10 min)</u>** <br> • **Software de Sistema:** Es el software esencial que controla el hardware. Su máximo representante es el **Sistema Operativo.** <br> • **Software de Aplicación:** Son los programas que usamos para tareas específicas (navegador web, procesador de texto, videojuegos). <br><br> **<u>Bloque 2: El Sistema Operativo (15 min)</u>** <br> • **Definición y funciones:** El docente explica que el S.O. es el intermediario entre el usuario, el hardware y otros software. Sus funciones son: <br> 1. Gestionar los recursos del hardware (CPU, memoria). <br> 2. Proporcionar una **interfaz de usuario** (gráfica o de texto). <br> 3. Gestionar archivos y carpetas. <br> 4. Ejecutar aplicaciones. <br> • **Software Libre vs. Propietario:** <br> - **Propietario (Privativo):** Se pide licencia de uso, no se puede modificar libremente. **Ejemplos:** Microsoft Windows, macOS. <br> - **Libre (y de código abierto):** Se puede usar, estudiar, modificar y distribuir libremente. **Ejemplo:** Linux (Ubuntu, Fedora), Android (en gran medida). <br> • **Demostración práctica:** El docente muestra en vivo la interfaz de Windows o Linux, señalando elementos como el escritorio, los iconos, la barra de tareas y cómo se navega por las carpetas para gestionar archivos. |
+| **Cierre** | **10 min** | **Conclusiones:** Se pregunta a los estudiantes: "¿Cuál es la diferencia principal entre software libre y propietario?" y "¿Por qué es indispensable un sistema operativo?". <br> **Tarea / Actividad sumativa:** "Elaboren una tabla en su cuaderno con dos columnas: 'Software Libre' y 'Software Propietario'. Investiguen y anoten 3 ejemplos de cada tipo, que no sean sistemas operativos." (Ej: Libre: Firefox, LibreOffice; Propietario: Photoshop, Microsoft Office). |
