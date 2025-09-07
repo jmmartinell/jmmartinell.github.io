@@ -13,9 +13,6 @@ collections:
   notas:
     output: true
     permalink: /notas/:name.html
-  preguntas:
-    output: true
-    permalink: /preguntas/:name.html
 
 defaults:
   - scope:
@@ -26,10 +23,5 @@ defaults:
   - scope:
       path: "_notas"
       type: "notas"
-    values:
-      layout: "default"
-  - scope:
-      path: "_preguntas"
-      type: "preguntas"
     values:
       layout: "default"
