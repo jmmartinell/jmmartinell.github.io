@@ -25,3 +25,8 @@ defaults:
       type: "notas"
     values:
       layout: "default"
+  - scope:
+      path: "_preguntas"
+      type: "preguntas"
+    values:
+      layout: "default"

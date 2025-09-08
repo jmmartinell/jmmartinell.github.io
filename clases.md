@@ -11,3 +11,15 @@ title: Todas las Clases
   - [Notas y materiales](/notas/{{ clase.name | replace: '.md', '' }}_notas.html)
   - [Preguntas generadas por las clases](/preguntas-evaluaciones.html#{{ clase.name | replace: '.md', '' }})
 {% endfor %}
+
+# Lista de Archivos de Notas
+
+{% for nota in site.notas %}
+* {{ nota.name | replace: '.md', '' }}
+{% endfor %}
+
+# Lista de Archivos de Preguntas
+
+{% for pregunta in site.preguntas %}
+* {{ pregunta.name | replace: '.md', '' }}
+{% endfor %}
