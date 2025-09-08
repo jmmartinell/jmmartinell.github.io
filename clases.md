@@ -23,3 +23,16 @@ title: Todas las Clases
 {% for pregunta in site.preguntas %}
 * {{ pregunta.name | replace: '.md', '' }}
 {% endfor %}
+
+# Listado completo con todas las propiedades disponibles
+
+{% for item in site.notas %}
+* <strong>Nombre del archivo:</strong> {{ item.name }}
+* <strong>Ruta completa:</strong> {{ item.path }}
+* <strong>Ruta relativa:</strong> {{ item.relative_path }}
+* <strong>URL:</strong> {{ item.url }}
+* <strong>Título:</strong> {{ item.title }}
+* <strong>Colección:</strong> {{ item.collection }}
+* <strong>Contenido:</strong> {{ item.content | strip_html | truncate: 10 }}
+---
+{% endfor %}

@@ -13,6 +13,9 @@ collections:
   notas:
     output: true
     permalink: /notas/:name.html
+  preguntas:
+    output: true
+    permalink: /preguntas/:name.html
 
 defaults:
   - scope:
