@@ -9,7 +9,29 @@ title: Todas las Clases
 {% for clase in clases_ordenadas %}
   {% assign base_filename = clase.path | split: '/' | last | replace: '.md', '' %}
   {% assign notas_filename = base_filename | append: '_notas' | replace: '_', '-' %}
+  {% assign preguntas_filename = base_filename | append: '_preguntas' | replace: '_', '-' %}
+  
+  {# Verificar si existe el archivo de notas #}
+  {% assign notas_existe = false %}
+  {% for nota in site.notas %}
+    {% if nota.path contains base_filename %}
+      {% assign notas_existe = true %}
+    {% endif %}
+  {% endfor %}
+  
+  {# Verificar si existe el archivo de preguntas #}
+  {% assign preguntas_existe = false %}
+  {% for pregunta in site.preguntas %}
+    {% if pregunta.path contains base_filename %}
+      {% assign preguntas_existe = true %}
+    {% endif %}
+  {% endfor %}
+  
 * [{{ clase.title }}]({{ clase.url }})
+  {% if notas_existe %}
   - [Notas y materiales](/notas/{{ notas_filename }}.html)
-  - [Preguntas generadas por las clases](/preguntas-evaluaciones.html#{{ base_filename | replace: '_', '-' }})
+  {% endif %}
+  {% if preguntas_existe %}
+  - [Preguntas generadas por las clases](/preguntas/{{ preguntas_filename }}.html)
+  {% endif %}
 {% endfor %}
