@@ -7,7 +7,8 @@ title: Todas las Clases
 
 {% assign clases_ordenadas = site.clases | sort: 'numero' %}
 {% for clase in clases_ordenadas %}
-  {% assign notas_filename = clase.name | replace: '.md', '' | append: '_notas' | replace: '_', '-' %}
+{% assign base_filename = filename | replace: '.md', '' %}
+  {% assign notas_filename = base_filename | append: '_notas' | replace: '_', '-' %}
 * [{{ clase.title }}]({{ clase.url }})
   - [Notas y materiales](/notas/{{ notas_filename }}.html)
   - [Preguntas generadas por las clases](/preguntas-evaluaciones.html#{{ clase.name | replace: '.md', '' | replace: '_', '-' }})
