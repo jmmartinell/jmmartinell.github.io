@@ -1,3 +1,6 @@
+---
+layout: default
+title: Notas Clases 1 y 2
 Tema: Introducción a la asignatura. ¿Qué es un ordenador?
 
 Objetivo de la Clase:
