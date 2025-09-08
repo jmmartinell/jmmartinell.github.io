@@ -1,7 +1,9 @@
 ---
 layout: default
 title: Clases 7 y 8
+numero: 4  # Para ordenamiento
 ---
+
 ### **Planificación de Clases – Etapa Propedéutica**
 **Asignatura:** Informática
 **Docente:** José Manuel Martinell Reynaldo

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Clases 1 y 2 - Introducción a la informática
+title: Clases 1 y 2
 numero: 1  # Para ordenamiento
 ---
 

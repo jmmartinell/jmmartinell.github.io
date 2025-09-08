@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Clases 3 y 4
+numero: 2  # Para ordenamiento
 ---
 
 ### **Planificación de Clases – Etapa Propedéutica**

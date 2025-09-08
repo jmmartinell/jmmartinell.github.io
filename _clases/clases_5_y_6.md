@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Clases 5 y 6
+numero: 3  # Para ordenamiento
 ---
 
 ### **Planificación de Clases – Etapa Propedéutica**
