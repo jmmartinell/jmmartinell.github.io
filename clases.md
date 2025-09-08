@@ -1,4 +1,3 @@
-{% raw %}
 ---
 layout: default
 title: Todas las Clases
@@ -15,4 +14,3 @@ title: Todas las Clases
   {# Enlace a preguntas - usando un ID más simple basado en el nombre del archivo #}
   - [Preguntas generadas por las clases](/preguntas-evaluaciones.html#{{ clase.name }})
 {% endfor %}
-{% endraw %}
