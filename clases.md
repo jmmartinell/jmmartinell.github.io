@@ -5,11 +5,12 @@ title: Todas las Clases
 
 # Lista de Todas las Clases
 
-{% assign clases_ordenadas = site.clases | sort: 'numero' %}
-{% for clase in clases_ordenadas %}
+{% for clase in site.clases %}
+{% assign filename = clase.relative_path | split: '/' | last %}
+{% assign base_filename = filename | replace: '.md', '' %}
 * [{{ clase.title }}]({{ clase.url }})
-  - [Notas y materiales](/notas/{{ clase.name | replace: '.md', '' }}_notas.html)
-  - [Preguntas generadas por las clases](/preguntas-evaluaciones.html#{{ clase.name | replace: '.md', '' }})
+  - [Notas y materiales](/notas/{{ base_filename }}_notas.html)
+  - [Preguntas generadas por las clases](/preguntas-evaluaciones.html#{{ base_filename }})
 {% endfor %}
 
 # Archivos en la carpeta de Notas
