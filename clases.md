@@ -11,7 +11,6 @@ title: Todas las Clases
   {% assign notas_filename = base_filename | append: '_notas' | replace: '_', '-' %}
   {% assign preguntas_filename = base_filename | append: '_preguntas' | replace: '_', '-' %}
   
-  {# Verificar si existe el archivo de notas #}
   {% assign notas_existe = false %}
   {% for nota in site.notas %}
     {% if nota.path contains base_filename %}
@@ -19,7 +18,6 @@ title: Todas las Clases
     {% endif %}
   {% endfor %}
   
-  {# Verificar si existe el archivo de preguntas #}
   {% assign preguntas_existe = false %}
   {% for pregunta in site.preguntas %}
     {% if pregunta.path contains base_filename %}

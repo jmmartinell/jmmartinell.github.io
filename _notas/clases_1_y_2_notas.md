@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Notas Clases 1 y 2
-name: Nombre de la primera nota
 ---
 
 # Notas de Clase - Informática

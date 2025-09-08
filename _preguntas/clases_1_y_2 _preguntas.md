@@ -1,3 +1,8 @@
+---
+layout: default
+title: Preguntas Clases 3 y 4
+---
+
 ### Cuestionario de Repaso - Introducción a la Informática
 
 **Instrucciones:** Responde con **Sí** o **No**, o con la palabra o concepto corto que complete correctamente la frase.
