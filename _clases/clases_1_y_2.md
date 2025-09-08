@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Clases 1 y 2
+title: Clases 1 y 2 - Introducción a la informática
+numero: 1  # Para ordenamiento
 ---
 
 ### **Planificación de Clases – Etapa Propedéutica**
