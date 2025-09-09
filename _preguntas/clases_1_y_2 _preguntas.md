@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Preguntas Clases 3 y 4
+title: Preguntas Clases 1 y 2
 ---
 
 ### Cuestionario de Repaso - Introducción a la Informática
