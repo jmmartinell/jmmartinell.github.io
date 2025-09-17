@@ -1,3 +1,8 @@
+---
+layout: default
+title: Preguntas Clases 5 y 6
+---
+
 ### Cuestionario de Repaso - Fundamentos de Programación
 
 **Instrucciones:** Responde con **Sí** o **No**, o con la palabra o concepto corto que complete correctamente la frase.
