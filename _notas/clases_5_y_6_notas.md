@@ -1,3 +1,8 @@
+---
+layout: default
+title: Notas Clases 5 y 6
+---
+
 # Notas de Clase - Informática
 
 ## Clase #5: Introducción a la Programación: Algoritmos y Datos
