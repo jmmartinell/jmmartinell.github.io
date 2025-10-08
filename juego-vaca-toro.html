@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐄🐂 Vaca y Toro - Juego de Números</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .game-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .title {
+            font-size: 2.5em;
+            color: #4a5568;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #718096;
+            margin-bottom: 20px;
+        }
+
+        .rules {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 5px solid #f6ad55;
+        }
+
+        .rules h3 {
+            color: #c53030;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .rules p {
+            color: #2d3748;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .input-section {
+            margin-bottom: 25px;
+        }
+
+        .number-input {
+            font-size: 2em;
+            padding: 15px;
+            border: 3px solid #4299e1;
+            border-radius: 15px;
+            text-align: center;
+            width: 200px;
+            margin: 0 auto 15px;
+            display: block;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #2d3748;
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            transition: all 0.3s ease;
+        }
+
+        .number-input:focus {
+            outline: none;
+            border-color: #38b2ac;
+            box-shadow: 0 0 20px rgba(56, 178, 172, 0.3);
+            transform: scale(1.05);
+        }
+
+        .guess-button {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+        }
+
+        .guess-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.6);
+        }
+
+        .guess-button:active {
+            transform: translateY(-1px);
+        }
+
+        .guess-button:disabled {
+            background: #a0aec0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .attempts-section {
+            margin-bottom: 25px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .attempt {
+            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.5s ease-out;
+            border-left: 5px solid #e53e3e;
+        }
+
+        .attempt.correct {
+            background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+            border-left-color: #38a169;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .attempt-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            color: #2d3748;
+        }
+
+        .attempt-result {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .bulls, .cows {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .bulls {
+            background: linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%);
+            color: #702459;
+        }
+
+        .cows {
+            background: linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%);
+            color: #2c5282;
+        }
+
+        .reset-button {
+            background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(237, 137, 54, 0.4);
+        }
+
+        .reset-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(237, 137, 54, 0.6);
+        }
+
+        .win-message {
+            background: linear-gradient(135deg, #68d391 0%, #48bb78 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+            animation: bounce 0.6s ease-in-out;
+            box-shadow: 0 10px 30px rgba(104, 211, 145, 0.4);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4a5568;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .error-message {
+            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+            color: #c53030;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @media (max-width: 600px) {
+            .game-container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .title {
+                font-size: 2em;
+            }
+
+            .number-input {
+                width: 180px;
+                font-size: 1.8em;
+            }
+
+            .attempt {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="title">🐄🐂 Vaca y Toro</h1>
+        <p class="subtitle">¡Adivina el número secreto de 4 cifras!</p>
+
+        <div class="rules">
+            <h3>📋 Cómo Jugar:</h3>
+            <p><strong>🐂 Toro:</strong> Cifra correcta en posición correcta<br>
+            <strong>🐄 Vaca:</strong> Cifra correcta en posición incorrecta<br>
+            <em>El número secreto tiene 4 cifras diferentes</em></p>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number" id="attempts-count">0</span>
+                <span class="stat-label">Intentos</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="best-score">-</span>
+                <span class="stat-label">Mejor</span>
+            </div>
+        </div>
+
+        <div id="win-message" class="win-message" style="display: none;"></div>
+        <div id="error-message" class="error-message" style="display: none;"></div>
+
+        <div class="input-section">
+            <input type="text" id="guess-input" class="number-input" placeholder="1234" maxlength="4">
+            <button id="guess-button" class="guess-button">🎯 Adivinar</button>
+        </div>
+
+        <div id="attempts-section" class="attempts-section"></div>
+
+        <button id="reset-button" class="reset-button">🔄 Nuevo Juego</button>
+    </div>
+
+    <script>
+        class VacaYToroGame {
+            constructor() {
+                this.secretNumber = '';
+                this.attempts = [];
+                this.gameWon = false;
+                this.bestScore = localStorage.getItem('vacaToroBest') || null;
+
+                this.initializeElements();
+                this.initializeGame();
+                this.setupEventListeners();
+                this.updateBestScore();
+            }
+
+            initializeElements() {
+                this.guessInput = document.getElementById('guess-input');
+                this.guessButton = document.getElementById('guess-button');
+                this.resetButton = document.getElementById('reset-button');
+                this.attemptsSection = document.getElementById('attempts-section');
+                this.winMessage = document.getElementById('win-message');
+                this.errorMessage = document.getElementById('error-message');
+                this.attemptsCount = document.getElementById('attempts-count');
+                this.bestScoreElement = document.getElementById('best-score');
+            }
+
+            initializeGame() {
+                this.secretNumber = this.generateSecretNumber();
+                this.attempts = [];
+                this.gameWon = false;
+                this.attemptsSection.innerHTML = '';
+                this.winMessage.style.display = 'none';
+                this.hideError();
+                this.updateAttemptsCount();
+                this.guessInput.value = '';
+                this.guessInput.disabled = false;
+                this.guessButton.disabled = false;
+                console.log('Número secreto:', this.secretNumber); // Para testing - remover en producción
+            }
+
+            generateSecretNumber() {
+                const digits = [];
+                while (digits.length < 4) {
+                    const digit = Math.floor(Math.random() * 10);
+                    if (!digits.includes(digit)) {
+                        digits.push(digit);
+                    }
+                }
+                return digits.join('');
+            }
+
+            setupEventListeners() {
+                this.guessButton.addEventListener('click', () => this.makeGuess());
+                this.resetButton.addEventListener('click', () => this.initializeGame());
+
+                this.guessInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.makeGuess();
+                    }
+                });
+
+                this.guessInput.addEventListener('input', (e) => {
+                    // Solo permitir números
+                    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                });
+            }
+
+            validateGuess(guess) {
+                if (guess.length !== 4) {
+                    return 'El número debe tener exactamente 4 cifras';
+                }
+
+                if (!/^\d{4}$/.test(guess)) {
+                    return 'Solo se permiten números';
+                }
+
+                const digits = guess.split('');
+                const uniqueDigits = [...new Set(digits)];
+                if (uniqueDigits.length !== 4) {
+                    return 'Todas las cifras deben ser diferentes';
+                }
+
+                return null;
+            }
+
+            calculateBullsAndCows(guess) {
+                let bulls = 0;
+                let cows = 0;
+
+                const secretDigits = this.secretNumber.split('');
+                const guessDigits = guess.split('');
+
+                // Contar toros (posición correcta)
+                for (let i = 0; i < 4; i++) {
+                    if (secretDigits[i] === guessDigits[i]) {
+                        bulls++;
+                    }
+                }
+
+                // Contar vacas (cifra correcta, posición incorrecta)
+                for (let i = 0; i < 4; i++) {
+                    if (secretDigits[i] !== guessDigits[i] && secretDigits.includes(guessDigits[i])) {
+                        cows++;
+                    }
+                }
+
+                return { bulls, cows };
+            }
+
+            makeGuess() {
+                if (this.gameWon) return;
+
+                const guess = this.guessInput.value.trim();
+                const validationError = this.validateGuess(guess);
+
+                if (validationError) {
+                    this.showError(validationError);
+                    return;
+                }
+
+                this.hideError();
+
+                const result = this.calculateBullsAndCows(guess);
+                const attempt = {
+                    number: guess,
+                    bulls: result.bulls,
+                    cows: result.cows,
+                    attemptNumber: this.attempts.length + 1
+                };
+
+                this.attempts.push(attempt);
+                this.displayAttempt(attempt);
+                this.updateAttemptsCount();
+
+                if (result.bulls === 4) {
+                    this.gameWon = true;
+                    this.showWinMessage();
+                    this.guessInput.disabled = true;
+                    this.guessButton.disabled = true;
+                    this.updateBestScore();
+                }
+
+                this.guessInput.value = '';
+                this.guessInput.focus();
+            }
+
+            displayAttempt(attempt) {
+                const attemptElement = document.createElement('div');
+                attemptElement.className = `attempt ${attempt.bulls === 4 ? 'correct' : ''}`;
+
+                attemptElement.innerHTML = `
+                    <div class="attempt-number">#${attempt.attemptNumber}: ${attempt.number}</div>
+                    <div class="attempt-result">
+                        <div class="bulls">🐂 ${attempt.bulls}</div>
+                        <div class="cows">🐄 ${attempt.cows}</div>
+                    </div>
+                `;
+
+                this.attemptsSection.insertBefore(attemptElement, this.attemptsSection.firstChild);
+            }
+
+            showWinMessage() {
+                const attempts = this.attempts.length;
+                let message = `🎉 ¡Felicidades! 🎉<br>`;
+                message += `Adivinaste el número <strong>${this.secretNumber}</strong> en <strong>${attempts}</strong> intento${attempts !== 1 ? 's' : ''}!`;
+
+                if (attempts <= 5) {
+                    message += '<br>🏆 ¡Excelente trabajo!';
+                } else if (attempts <= 8) {
+                    message += '<br>👏 ¡Muy bien!';
+                } else {
+                    message += '<br>👍 ¡Buen trabajo!';
+                }
+
+                this.winMessage.innerHTML = message;
+                this.winMessage.style.display = 'block';
+            }
+
+            showError(message) {
+                this.errorMessage.textContent = message;
+                this.errorMessage.style.display = 'block';
+                setTimeout(() => this.hideError(), 3000);
+            }
+
+            hideError() {
+                this.errorMessage.style.display = 'none';
+            }
+
+            updateAttemptsCount() {
+                this.attemptsCount.textContent = this.attempts.length;
+            }
+
+            updateBestScore() {
+                if (this.gameWon) {
+                    const currentScore = this.attempts.length;
+                    if (!this.bestScore || currentScore < parseInt(this.bestScore)) {
+                        this.bestScore = currentScore;
+                        localStorage.setItem('vacaToroBest', this.bestScore);
+                    }
+                }
+
+                this.bestScoreElement.textContent = this.bestScore || '-';
+            }
+        }
+
+        // Inicializar el juego cuando se carga la página
+        document.addEventListener('DOMContentLoaded', () => {
+            new VacaYToroGame();
+        });
+    </script>
+</body>
+</html>
