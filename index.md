@@ -11,4 +11,5 @@ Este es el punto central para todos los materiales de la asignatura de Informát
 
 * [Dosificación del Curso](/dosificacion.html)
 * [Lista de Todas las Clases](/clases.html)
+* [Juego Vaca y Toro](/juego-vaca-toro.html)
 * [Sobre este sitio](/about.html)
