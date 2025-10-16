@@ -349,7 +349,23 @@
                 this.bestScore = localStorage.getItem('vacaToroBest') || null;
 
                 this.initializeElements();
-                this.initializeGame();
+                
+                // Verificar si hay estado guardado
+                const savedState = localStorage.getItem('vacaToroGameState');
+                if (savedState) {
+                    try {
+                        const { secretNumber, attempts } = JSON.parse(savedState);
+                        this.secretNumber = secretNumber;
+                        this.attempts = attempts;
+                        this.gameWon = false;
+                        this.restoreGameState();
+                    } catch (e) {
+                        this.initializeGame();
+                    }
+                } else {
+                    this.initializeGame();
+                }
+                
                 this.setupEventListeners();
                 this.updateBestScore();
             }
@@ -376,7 +392,9 @@
                 this.guessInput.value = '';
                 this.guessInput.disabled = false;
                 this.guessButton.disabled = false;
-                console.log('Número secreto:', this.secretNumber); // Para testing - remover en producción
+                
+                // Guardar estado del nuevo juego
+                this.saveGameState();
             }
 
             generateSecretNumber() {
@@ -472,6 +490,9 @@
                 this.attempts.push(attempt);
                 this.displayAttempt(attempt);
                 this.updateAttemptsCount();
+                
+                // Guardar estado después de cada jugada
+                this.saveGameState();
 
                 if (result.bulls === 4) {
                     this.gameWon = true;
@@ -479,6 +500,9 @@
                     this.guessInput.disabled = true;
                     this.guessButton.disabled = true;
                     this.updateBestScore();
+                    
+                    // Eliminar estado guardado al ganar
+                    localStorage.removeItem('vacaToroGameState');
                 }
 
                 this.guessInput.value = '';
@@ -541,6 +565,23 @@
                 }
 
                 this.bestScoreElement.textContent = this.bestScore || '-';
+            }
+            
+            // NUEVOS MÉTODOS PARA GUARDAR/RESTAURAR ESTADO
+            saveGameState() {
+                localStorage.setItem('vacaToroGameState', JSON.stringify({
+                    secretNumber: this.secretNumber,
+                    attempts: this.attempts
+                }));
+            }
+
+            restoreGameState() {
+                this.attempts.forEach(attempt => {
+                    this.displayAttempt(attempt);
+                });
+                this.updateAttemptsCount();
+                this.guessInput.disabled = false;
+                this.guessButton.disabled = false;
             }
         }
 
