@@ -7,716 +7,475 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#1a365d',
+                            light: '#2b4c7e',
+                        },
+                        accent: {
+                            DEFAULT: '#2563eb',
+                            light: '#3b82f6',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
     <style>
-        :root {
-            --primary: #1a365d;
-            --primary-light: #2b4c7e;
-            --accent: #2563eb;
-            --accent-light: #3b82f6;
-            --text-dark: #1e293b;
-            --text-medium: #475569;
-            --text-light: #64748b;
-            --border: #e2e8f0;
-            --bg-subtle: #f8fafc;
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text-dark);
-            background: #e2e8f0;
-            line-height: 1.5;
-            font-size: 10pt;
-        }
-
-        .cv-container {
-            max-width: 210mm;
-            margin: 20px auto;
-            background: var(--white);
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            padding: 32px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .header-left {
-            flex: 1;
-        }
-
-        .header h1 {
-            font-size: 22pt;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 4px;
-        }
-
-        .header .subtitle {
-            font-size: 11pt;
-            font-weight: 300;
-            color: rgba(255,255,255,0.85);
-            letter-spacing: 0.5px;
-        }
-
-        .header-right {
-            text-align: right;
-            font-size: 9pt;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.9);
-            min-width: 240px;
-        }
-
-        .header-right .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 8px;
-        }
-
-        .header-right .contact-icon {
-            font-size: 10pt;
-            width: 16px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        /* ===== BODY ===== */
-        .cv-body {
-            display: grid;
-            grid-template-columns: 1fr 220px;
-            min-height: 0;
-        }
-
-        /* ===== MAIN COLUMN ===== */
-        .main-column {
-            padding: 28px 32px 32px 40px;
-        }
-
-        /* ===== SIDEBAR ===== */
-        .sidebar {
-            background: var(--bg-subtle);
-            padding: 28px 24px 32px 20px;
-            border-left: 1px solid var(--border);
-        }
-
-        /* ===== SECTIONS ===== */
-        .section {
-            margin-bottom: 22px;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        .section-title {
-            font-size: 10.5pt;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 5px;
-            margin-bottom: 12px;
-        }
-
-        .sidebar .section-title {
-            font-size: 9.5pt;
-            letter-spacing: 1px;
-        }
-
-        /* ===== PROFILE ===== */
-        .profile-text {
-            font-size: 9.5pt;
-            color: var(--text-medium);
-            line-height: 1.65;
-            text-align: justify;
-        }
-
-        /* ===== EXPERIENCE ===== */
-        .experience-item {
-            margin-bottom: 16px;
-        }
-
-        .experience-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-        }
-
-        .exp-title {
-            font-size: 10pt;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .exp-date {
-            font-size: 8.5pt;
-            color: var(--accent);
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .exp-company {
-            font-size: 9pt;
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 4px;
-        }
-
-        .exp-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .exp-list li {
-            font-size: 9pt;
-            color: var(--text-medium);
-            padding-left: 14px;
-            position: relative;
-            margin-bottom: 2px;
-            line-height: 1.55;
-        }
-
-        .exp-list li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--accent-light);
-            font-size: 8pt;
-        }
-
-        /* ===== EDUCATION ===== */
-        .edu-degree {
-            font-size: 10pt;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .edu-school {
-            font-size: 9pt;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        .edu-date {
-            font-size: 8.5pt;
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .edu-thesis {
-            font-size: 8.5pt;
-            color: var(--text-medium);
-            margin-top: 3px;
-            line-height: 1.5;
-        }
-
-        .edu-thesis strong {
-            font-weight: 500;
-        }
-
-        .edu-note {
-            font-size: 8.5pt;
-            color: var(--accent);
-            font-weight: 500;
-            margin-top: 3px;
-        }
-
-        /* ===== ALUMNO AYUDANTE ===== */
-        .ayudante-item {
-            margin-bottom: 6px;
-        }
-
-        .ayudante-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .ayudante-subject {
-            font-size: 9pt;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .ayudante-detail {
-            font-size: 8.5pt;
-            color: var(--text-medium);
-            padding-left: 14px;
-            position: relative;
-        }
-
-        .ayudante-detail::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--accent-light);
-            font-size: 8pt;
-        }
-
-        /* ===== PROJECTS ===== */
-        .project-item {
-            margin-bottom: 14px;
-        }
-
-        .project-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .project-name {
-            font-size: 9.5pt;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .project-tech {
-            font-size: 8pt;
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .project-status {
-            font-size: 7.5pt;
-            background: var(--accent);
-            color: white;
-            padding: 1px 6px;
-            border-radius: 3px;
-            font-weight: 500;
-            margin-left: 4px;
-        }
-
-        .project-desc {
-            font-size: 8.5pt;
-            color: var(--text-medium);
-            line-height: 1.5;
-            margin-top: 2px;
-        }
-
-        /* ===== SIDEBAR SKILLS ===== */
-        .skill-category {
-            margin-bottom: 12px;
-        }
-
-        .skill-category:last-child {
-            margin-bottom: 0;
-        }
-
-        .skill-label {
-            font-size: 8.5pt;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-
-        .skill-tag {
-            font-size: 7.5pt;
-            background: var(--white);
-            border: 1px solid var(--border);
-            color: var(--text-medium);
-            padding: 2px 8px;
-            border-radius: 3px;
-            font-weight: 400;
-        }
-
-        .skill-tag.strong {
-            background: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-            font-weight: 500;
-        }
-
-        /* ===== SIDEBAR LANGUAGES ===== */
-        .lang-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-            font-size: 9pt;
-        }
-
-        .lang-name {
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .lang-level {
-            font-size: 8pt;
-            color: var(--text-light);
-        }
-
-        .lang-bar-container {
-            width: 100%;
-            height: 4px;
-            background: var(--border);
-            border-radius: 2px;
-            margin-top: 2px;
-            margin-bottom: 10px;
-        }
-
-        .lang-bar {
-            height: 100%;
-            border-radius: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-        }
-
-        /* ===== SIDEBAR INFO ===== */
-        .info-item {
-            font-size: 8.5pt;
-            color: var(--text-medium);
-            margin-bottom: 6px;
-            display: flex;
-            align-items: flex-start;
-            gap: 6px;
-            line-height: 1.5;
-        }
-
-        .info-item .info-icon {
-            color: var(--accent);
-            font-size: 9pt;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 12px 40px;
-            font-size: 8pt;
-            color: var(--text-light);
-            border-top: 1px solid var(--border);
-        }
-
-        /* ===== PRINT STYLES ===== */
         @media print {
-            body {
-                background: white;
-                font-size: 10pt;
-            }
-
-            .cv-container {
-                box-shadow: none;
-                margin: 0;
-                max-width: 100%;
-            }
-
-            .header {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .sidebar {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .skill-tag.strong {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .project-status {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .lang-bar-container, .lang-bar {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            @page {
-                margin: 0;
-                size: A4;
-            }
+            body { background: white !important; }
+            .cv-container { box-shadow: none !important; margin: 0 !important; max-width: 100% !important; }
+            .header-bg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .sidebar-bg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .tag-strong { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .badge-dev { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .lang-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            @page { margin: 0; size: A4; }
         }
     </style>
 </head>
-<body>
-    <div class="cv-container">
+<body class="font-inter bg-slate-200 text-slate-800 text-[10pt] leading-relaxed">
+
+    <!-- CV Container -->
+    <div class="cv-container max-w-[210mm] mx-auto my-5 bg-white shadow-xl">
 
         <!-- ===== HEADER ===== -->
-        <header class="header">
-            <div class="header-left">
-                <h1>José Manuel Martinell Reynaldo</h1>
-                <div class="subtitle">Ingeniero en Ciencias Informáticas · Desarrollador Web</div>
-            </div>
-            <div class="header-right">
-                <div class="contact-item">
-                    <span>martinell.reynaldo@gmail.com</span>
-                    <span class="contact-icon">✉</span>
+        <header class="header-bg bg-gradient-to-br from-primary to-primary-light text-white px-6 py-7 sm:px-10 sm:py-8">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+                <!-- Left: Name -->
+                <div>
+                    <h1 class="text-2xl sm:text-[22pt] font-bold tracking-tight">José Manuel Martinell Reynaldo</h1>
+                    <p class="text-sm sm:text-[11pt] font-light text-white/85 tracking-wide mt-1">
+                        Ingeniero en Ciencias Informáticas · Desarrollador Web
+                    </p>
                 </div>
-                <div class="contact-item">
-                    <span>+51 960 903 221</span>
-                    <span class="contact-icon">☎</span>
-                </div>
-                <div class="contact-item">
-                    <span>Breña, Lima, Perú</span>
-                    <span class="contact-icon">⌂</span>
-                </div>
-                <div class="contact-item">
-                    <span>CE: 004-2026-00178</span>
-                    <span class="contact-icon">◆</span>
+                <!-- Right: Contact -->
+                <div class="text-sm sm:text-[9pt] leading-7 text-white/90 sm:text-right sm:min-w-[240px] space-y-0.5">
+                    <div class="flex items-center sm:justify-end gap-2">
+                        <span>martinell.reynaldo@gmail.com</span>
+                        <span class="w-4 text-center flex-shrink-0">✉</span>
+                    </div>
+                    <div class="flex items-center sm:justify-end gap-2">
+                        <span>+51 960 903 221</span>
+                        <span class="w-4 text-center flex-shrink-0">☎</span>
+                    </div>
+                    <div class="flex items-center sm:justify-end gap-2">
+                        <span>Breña, Lima, Perú</span>
+                        <span class="w-4 text-center flex-shrink-0">⌂</span>
+                    </div>
+                    <div class="flex items-center sm:justify-end gap-2">
+                        <span>CE: 004-2026-00178</span>
+                        <span class="w-4 text-center flex-shrink-0">◆</span>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <!-- ===== BODY ===== -->
-        <div class="cv-body">
+        <!-- ===== BODY: Two columns on desktop, stacked on mobile ===== -->
+        <div class="flex flex-col lg:grid lg:grid-cols-[1fr_220px]">
 
             <!-- ===== MAIN COLUMN ===== -->
-            <main class="main-column">
+            <main class="px-6 py-6 sm:px-10 sm:py-7 order-1">
 
                 <!-- PERFIL PROFESIONAL -->
-                <section class="section">
-                    <h2 class="section-title">Perfil Profesional</h2>
-                    <p class="profile-text">
-                        Ingeniero en Ciencias Informáticas con sólida formación en desarrollo de aplicaciones web utilizando PHP, Laravel y CodeIgniter. Experiencia en el diseño e implementación de sistemas de gestión con bases de datos relacionales y APIs REST. Cuatro años de trayectoria como docente de informática y mentor en proyectos de ingeniería de software, lo que me ha permitido desarrollar habilidades de comunicación técnica, liderazgo y gestión de proyectos. Profesional autodidacta, orientado a la resolución de problemas y en constante aprendizaje de nuevas tecnologías como React e inteligencia artificial aplicada. Busco integrarme a un equipo de desarrollo web donde pueda aportar mis conocimientos técnicos y continuar mi crecimiento profesional en un entorno colaborativo.
+                <section class="mb-6">
+                    <h2 class="text-[10.5pt] font-bold text-primary uppercase tracking-widest border-b-2 border-accent pb-1.5 mb-3">
+                        Perfil Profesional
+                    </h2>
+                    <p class="text-[9.5pt] text-slate-500 leading-[1.65] text-justify">
+                        Ingeniero en Ciencias Informáticas con sólida formación en desarrollo de aplicaciones web
+                        utilizando PHP, Laravel y CodeIgniter. Experiencia en el diseño e implementación de sistemas
+                        de gestión con bases de datos relacionales y APIs REST. Cuatro años de trayectoria como
+                        docente de informática y mentor en proyectos de ingeniería de software, lo que me ha
+                        permitido desarrollar habilidades de comunicación técnica, liderazgo y gestión de proyectos.
+                        Profesional autodidacta, orientado a la resolución de problemas y en constante aprendizaje de
+                        nuevas tecnologías como React e inteligencia artificial aplicada. Busco integrarme a un equipo
+                        de desarrollo web donde pueda aportar mis conocimientos técnicos y continuar mi crecimiento
+                        profesional en un entorno colaborativo.
                     </p>
                 </section>
 
-                <!-- EXPERIENCIA PROFESIONAL -->
-                <section class="section">
-                    <h2 class="section-title">Experiencia Profesional</h2>
-
-                    <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">Docente de Informática</span>
-                            <span class="exp-date">Ene 2022 – Ene 2026</span>
+                <!-- COMPETENCIAS TÉCNICAS (visible on mobile only, before experience) -->
+                <section class="mb-6 lg:hidden">
+                    <h2 class="text-[10.5pt] font-bold text-primary uppercase tracking-widest border-b-2 border-accent pb-1.5 mb-3">
+                        Competencias Técnicas
+                    </h2>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Lenguajes</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">PHP</span>
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">JavaScript</span>
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">SQL</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">C++</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Python</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">HTML5</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">CSS3</span>
+                            </div>
                         </div>
-                        <div class="exp-company">IPU Julio Antonio Mella — Granma, Cuba</div>
-                        <ul class="exp-list">
-                            <li>Impartición de clases de programación y herramientas digitales a más de 120 estudiantes de preparatoria.</li>
-                            <li>Administración de recursos tecnológicos y coordinación del nodo informático institucional.</li>
-                            <li>Asesoría técnica y metodológica en 8 proyectos de culminación de estudios (tesis), abarcando sistemas de gestión de vacunación, facturación de servicios públicos, control de inventarios y gestión tributaria.</li>
-                            <li>Desarrollo de material didáctico adaptado para la enseñanza de fundamentos de programación.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">Alumno Ayudante — Cátedra Universitaria</span>
-                            <span class="exp-date">2018 – 2023</span>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Frameworks Backend</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">Laravel</span>
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">CodeIgniter</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Node.js</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">FastAPI</span>
+                            </div>
                         </div>
-                        <div class="exp-company">Universidad de Granma — Cuba</div>
-                        <div class="ayudante-item">
-                            <div class="ayudante-subject">Diseño y Programación Orientada a Objetos (2018–2019)</div>
-                            <div class="ayudante-detail">Tutorías y creación de material didáctico en C++ y patrones de diseño.</div>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Frontend</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">React</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Tailwind CSS</span>
+                            </div>
                         </div>
-                        <div class="ayudante-item">
-                            <div class="ayudante-subject">Bases de Datos (2020–2021)</div>
-                            <div class="ayudante-detail">Asistencia en laboratorios de SQL y normalización de bases de datos.</div>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Bases de Datos</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">MySQL</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">SQLite</span>
+                            </div>
                         </div>
-                        <div class="ayudante-item">
-                            <div class="ayudante-subject">Ingeniería de Software I, II y III (2021–2023)</div>
-                            <div class="ayudante-detail">Mentoría en proyectos de ciclo de vida de software: XP, UML y pruebas de calidad.</div>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Herramientas y Metodologías</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Git / GitHub</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Linux</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Docker</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">VS Code</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">APIs REST</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">XP</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">UML</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">IA Aplicada</span>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- PROYECTOS -->
-                <section class="section">
-                    <h2 class="section-title">Proyectos Destacados</h2>
+                <!-- EXPERIENCIA PROFESIONAL -->
+                <section class="mb-6">
+                    <h2 class="text-[10.5pt] font-bold text-primary uppercase tracking-widest border-b-2 border-accent pb-1.5 mb-3">
+                        Experiencia Profesional
+                    </h2>
 
-                    <div class="project-item">
-                        <div>
-                            <span class="project-name">Sistema de Gestión para Establecimiento Comercial</span>
+                    <!-- Docente -->
+                    <div class="mb-4">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-0.5">
+                            <span class="text-[10pt] font-semibold text-slate-800">Docente de Informática</span>
+                            <span class="text-[8.5pt] text-accent font-medium whitespace-nowrap">Ene 2022 – Ene 2026</span>
                         </div>
-                        <div class="project-tech">Laravel · MySQL · Tailwind CSS · API REST</div>
-                        <div class="project-desc">
-                            Aplicación web integral para la gestión de ventas, inventario y operaciones de un establecimiento de entretenimiento. Incluye módulos de punto de venta, control de stock, gestión de productos y generación de reportes.
-                        </div>
+                        <p class="text-[9pt] text-slate-400 italic mb-1">IPU Julio Antonio Mella — Granma, Cuba</p>
+                        <ul class="space-y-0.5">
+                            <li class="text-[9pt] text-slate-500 pl-3.5 relative before:content-['▸'] before:absolute before:left-0 before:text-accent-light before:text-[8pt] leading-snug">
+                                Impartición de clases de programación y herramientas digitales a más de 120 estudiantes de preparatoria.
+                            </li>
+                            <li class="text-[9pt] text-slate-500 pl-3.5 relative before:content-['▸'] before:absolute before:left-0 before:text-accent-light before:text-[8pt] leading-snug">
+                                Administración de recursos tecnológicos y coordinación del nodo informático institucional.
+                            </li>
+                            <li class="text-[9pt] text-slate-500 pl-3.5 relative before:content-['▸'] before:absolute before:left-0 before:text-accent-light before:text-[8pt] leading-snug">
+                                Asesoría técnica y metodológica en 8 proyectos de culminación de estudios (tesis), abarcando sistemas de gestión de vacunación, facturación de servicios públicos, control de inventarios y gestión tributaria.
+                            </li>
+                            <li class="text-[9pt] text-slate-500 pl-3.5 relative before:content-['▸'] before:absolute before:left-0 before:text-accent-light before:text-[8pt] leading-snug">
+                                Desarrollo de material didáctico adaptado para la enseñanza de fundamentos de programación.
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="project-item">
-                        <div>
-                            <span class="project-name">Plataforma de Tutor Educativo Virtual con IA</span>
-                            <span class="project-status">En desarrollo</span>
+                    <!-- Alumno Ayudante -->
+                    <div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-0.5">
+                            <span class="text-[10pt] font-semibold text-slate-800">Alumno Ayudante — Cátedra Universitaria</span>
+                            <span class="text-[8.5pt] text-accent font-medium whitespace-nowrap">2018 – 2023</span>
                         </div>
-                        <div class="project-tech">React · Node.js · Inteligencia Artificial</div>
-                        <div class="project-desc">
-                            Proyecto colaborativo con equipo internacional. Plataforma educativa que permite a docentes crear cursos personalizados, con seguimiento inteligente del progreso estudiantil mediante inteligencia artificial y analíticas avanzadas para el profesor.
+                        <p class="text-[9pt] text-slate-400 italic mb-2">Universidad de Granma — Cuba</p>
+
+                        <div class="space-y-1.5">
+                            <div>
+                                <p class="text-[9pt] font-medium text-slate-800">Diseño y Programación Orientada a Objetos (2018–2019)</p>
+                                <p class="text-[8.5pt] text-slate-500 pl-3.5 relative before:content-['▸'] before:absolute before:left-0 before:text-accent-light before:text-[8pt]">
+                                    Tutorías y creación de material didáctico en C++ y patrones de diseño.
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-[9pt] font-medium text-slate-800">Bases de Datos (2020–2021)</p>
+                                <p class="text-[8.5pt] text-slate-500 pl-3.5 relative before:content-['▸'] before:absolute before:left-0 before:text-accent-light before:text-[8pt]">
+                                    Asistencia en laboratorios de SQL y normalización de bases de datos.
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-[9pt] font-medium text-slate-800">Ingeniería de Software I, II y III (2021–2023)</p>
+                                <p class="text-[8.5pt] text-slate-500 pl-3.5 relative before:content-['▸'] before:absolute before:left-0 before:text-accent-light before:text-[8pt]">
+                                    Mentoría en proyectos de ciclo de vida de software: XP, UML y pruebas de calidad.
+                                </p>
+                            </div>
                         </div>
                     </div>
+                </section>
 
-                    <div class="project-item">
-                        <div>
-                            <span class="project-name">Sistema de Gestión de Materiales de Construcción</span>
+                <!-- PROYECTOS DESTACADOS -->
+                <section class="mb-6">
+                    <h2 class="text-[10.5pt] font-bold text-primary uppercase tracking-widest border-b-2 border-accent pb-1.5 mb-3">
+                        Proyectos Destacados
+                    </h2>
+
+                    <!-- Proyecto 1 -->
+                    <div class="mb-3.5">
+                        <p class="text-[9.5pt] font-semibold text-slate-800">Sistema de Gestión para Establecimiento Comercial</p>
+                        <p class="text-[8pt] text-accent font-medium">Laravel · MySQL · Tailwind CSS · API REST</p>
+                        <p class="text-[8.5pt] text-slate-500 leading-snug mt-0.5">
+                            Aplicación web integral para la gestión de ventas, inventario y operaciones de un
+                            establecimiento de entretenimiento. Incluye módulos de punto de venta, control de stock,
+                            gestión de productos y generación de reportes.
+                        </p>
+                    </div>
+
+                    <!-- Proyecto 2 -->
+                    <div class="mb-3.5">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <p class="text-[9.5pt] font-semibold text-slate-800">Plataforma de Tutor Educativo Virtual con IA</p>
+                            <span class="badge-dev text-[7.5pt] bg-accent text-white px-1.5 py-px rounded font-medium">En desarrollo</span>
                         </div>
-                        <div class="project-tech">CodeIgniter · MySQL — Proyecto de Tesis</div>
-                        <div class="project-desc">
-                            Sistema web para el control y seguimiento del gasto de materiales en empresa constructora con múltiples brigadas de trabajo. Base de datos relacional de más de 15 tablas con gestión de insumos por unidad operativa.
-                        </div>
+                        <p class="text-[8pt] text-accent font-medium">React · Node.js · Inteligencia Artificial</p>
+                        <p class="text-[8.5pt] text-slate-500 leading-snug mt-0.5">
+                            Proyecto colaborativo con equipo internacional. Plataforma educativa que permite a docentes
+                            crear cursos personalizados, con seguimiento inteligente del progreso estudiantil mediante
+                            inteligencia artificial y analíticas avanzadas para el profesor.
+                        </p>
+                    </div>
+
+                    <!-- Proyecto 3 -->
+                    <div>
+                        <p class="text-[9.5pt] font-semibold text-slate-800">Sistema de Gestión de Materiales de Construcción</p>
+                        <p class="text-[8pt] text-accent font-medium">CodeIgniter · MySQL — Proyecto de Tesis</p>
+                        <p class="text-[8.5pt] text-slate-500 leading-snug mt-0.5">
+                            Sistema web para el control y seguimiento del gasto de materiales en empresa constructora
+                            con múltiples brigadas de trabajo. Base de datos relacional de más de 15 tablas con gestión
+                            de insumos por unidad operativa.
+                        </p>
                     </div>
                 </section>
 
                 <!-- FORMACIÓN ACADÉMICA -->
-                <section class="section">
-                    <h2 class="section-title">Formación Académica</h2>
-                    <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="edu-degree">Ingeniero en Ciencias Informáticas</span>
-                            <span class="edu-date">2017 – 2023</span>
+                <section>
+                    <h2 class="text-[10.5pt] font-bold text-primary uppercase tracking-widest border-b-2 border-accent pb-1.5 mb-3">
+                        Formación Académica
+                    </h2>
+                    <div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-0.5">
+                            <span class="text-[10pt] font-semibold text-slate-800">Ingeniero en Ciencias Informáticas</span>
+                            <span class="text-[8.5pt] text-accent font-medium">2017 – 2023</span>
                         </div>
-                        <div class="edu-school">Universidad de Granma — Cuba</div>
-                        <div class="edu-thesis">
-                            <strong>Tesis:</strong> "Sistema Informático para la gestión de información en el Departamento Técnico Productivo de la Brigada #3 de la Empresa Construcción y Montaje de Granma."
-                        </div>
-                        <div class="edu-note">✓ Título validado y apostillado para ejercicio profesional en Perú</div>
+                        <p class="text-[9pt] text-slate-400 italic">Universidad de Granma — Cuba</p>
+                        <p class="text-[8.5pt] text-slate-500 mt-1 leading-snug">
+                            <span class="font-medium">Tesis:</span> "Sistema Informático para la gestión de información en el
+                            Departamento Técnico Productivo de la Brigada #3 de la Empresa Construcción y Montaje de Granma."
+                        </p>
+                        <p class="text-[8.5pt] text-accent font-medium mt-1">✓ Título validado y apostillado para ejercicio profesional en Perú</p>
                     </div>
                 </section>
 
+                <!-- IDIOMAS & INFO (visible on mobile only, after education) -->
+                <div class="lg:hidden mt-6 space-y-6">
+                    <!-- Idiomas mobile -->
+                    <section>
+                        <h2 class="text-[10.5pt] font-bold text-primary uppercase tracking-widest border-b-2 border-accent pb-1.5 mb-3">
+                            Idiomas
+                        </h2>
+                        <div class="flex justify-between items-center text-[9pt] mb-1">
+                            <span class="font-medium text-slate-800">Español</span>
+                            <span class="text-[8pt] text-slate-400">Nativo</span>
+                        </div>
+                        <div class="w-full h-1 bg-slate-200 rounded-full mb-3">
+                            <div class="lang-bar h-full rounded-full bg-gradient-to-r from-accent to-accent-light" style="width: 100%"></div>
+                        </div>
+                        <div class="flex justify-between items-center text-[9pt] mb-1">
+                            <span class="font-medium text-slate-800">Inglés</span>
+                            <span class="text-[8pt] text-slate-400">Básico (A2)</span>
+                        </div>
+                        <div class="w-full h-1 bg-slate-200 rounded-full mb-1">
+                            <div class="lang-bar h-full rounded-full bg-gradient-to-r from-accent to-accent-light" style="width: 30%"></div>
+                        </div>
+                        <p class="text-[7.5pt] text-slate-400">Lectura de documentación técnica</p>
+                    </section>
+
+                    <!-- Info adicional mobile -->
+                    <section>
+                        <h2 class="text-[10.5pt] font-bold text-primary uppercase tracking-widest border-b-2 border-accent pb-1.5 mb-3">
+                            Información Adicional
+                        </h2>
+                        <div class="space-y-1.5">
+                            <div class="text-[8.5pt] text-slate-500 flex items-start gap-1.5">
+                                <span class="text-accent text-[9pt] flex-shrink-0 mt-px">✓</span>
+                                <span>Título validado para ejercicio profesional en Perú</span>
+                            </div>
+                            <div class="text-[8.5pt] text-slate-500 flex items-start gap-1.5">
+                                <span class="text-accent text-[9pt] flex-shrink-0 mt-px">✓</span>
+                                <span>Disponibilidad inmediata</span>
+                            </div>
+                            <div class="text-[8.5pt] text-slate-500 flex items-start gap-1.5">
+                                <span class="text-accent text-[9pt] flex-shrink-0 mt-px">✓</span>
+                                <span>Modalidad presencial, remoto o híbrido</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Referencias mobile -->
+                    <section>
+                        <h2 class="text-[10.5pt] font-bold text-primary uppercase tracking-widest border-b-2 border-accent pb-1.5 mb-3">
+                            Referencias
+                        </h2>
+                        <p class="text-[8.5pt] text-slate-500">Disponibles a solicitud.</p>
+                    </section>
+                </div>
+
             </main>
 
-            <!-- ===== SIDEBAR ===== -->
-            <aside class="sidebar">
+            <!-- ===== SIDEBAR (hidden on mobile, shown on lg+) ===== -->
+            <aside class="sidebar-bg hidden lg:block bg-slate-50 border-l border-slate-200 px-5 py-7 order-2">
 
                 <!-- COMPETENCIAS TÉCNICAS -->
-                <section class="section">
-                    <h2 class="section-title">Competencias Técnicas</h2>
+                <section class="mb-5">
+                    <h2 class="text-[9.5pt] font-bold text-primary uppercase tracking-wide border-b-2 border-accent pb-1.5 mb-3">
+                        Competencias Técnicas
+                    </h2>
 
-                    <div class="skill-category">
-                        <div class="skill-label">Lenguajes</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag strong">PHP</span>
-                            <span class="skill-tag strong">JavaScript</span>
-                            <span class="skill-tag strong">SQL</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Lenguajes</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">PHP</span>
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">JavaScript</span>
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">SQL</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">C++</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Python</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">HTML5</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">CSS3</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="skill-category">
-                        <div class="skill-label">Frameworks Backend</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag strong">Laravel</span>
-                            <span class="skill-tag strong">CodeIgniter</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">FastAPI</span>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Frameworks Backend</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">Laravel</span>
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">CodeIgniter</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Node.js</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">FastAPI</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="skill-category">
-                        <div class="skill-label">Frontend</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Tailwind CSS</span>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Frontend</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">React</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Tailwind CSS</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="skill-category">
-                        <div class="skill-label">Bases de Datos</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag strong">MySQL</span>
-                            <span class="skill-tag">SQLite</span>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Bases de Datos</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="tag-strong text-[7.5pt] bg-primary text-white px-2 py-0.5 rounded font-medium">MySQL</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">SQLite</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="skill-category">
-                        <div class="skill-label">Herramientas</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git / GitHub</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">APIs REST</span>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Herramientas</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Git / GitHub</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Linux</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">Docker</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">VS Code</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">APIs REST</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="skill-category">
-                        <div class="skill-label">Metodologías</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">XP</span>
-                            <span class="skill-tag">UML</span>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Metodologías</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">XP</span>
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">UML</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="skill-category">
-                        <div class="skill-label">Otros</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">IA Aplicada</span>
+                        <div>
+                            <p class="text-[8.5pt] font-semibold text-primary mb-1">Otros</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="text-[7.5pt] bg-white border border-slate-200 text-slate-500 px-2 py-0.5 rounded">IA Aplicada</span>
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 <!-- IDIOMAS -->
-                <section class="section">
-                    <h2 class="section-title">Idiomas</h2>
-                    <div class="lang-item">
-                        <span class="lang-name">Español</span>
-                        <span class="lang-level">Nativo</span>
+                <section class="mb-5">
+                    <h2 class="text-[9.5pt] font-bold text-primary uppercase tracking-wide border-b-2 border-accent pb-1.5 mb-3">
+                        Idiomas
+                    </h2>
+                    <div class="flex justify-between items-center text-[9pt] mb-0.5">
+                        <span class="font-medium text-slate-800">Español</span>
+                        <span class="text-[8pt] text-slate-400">Nativo</span>
                     </div>
-                    <div class="lang-bar-container">
-                        <div class="lang-bar" style="width: 100%"></div>
+                    <div class="w-full h-1 bg-slate-200 rounded-full mb-2.5">
+                        <div class="lang-bar h-full rounded-full bg-gradient-to-r from-accent to-accent-light" style="width: 100%"></div>
                     </div>
-                    <div class="lang-item">
-                        <span class="lang-name">Inglés</span>
-                        <span class="lang-level">Básico (A2)</span>
+                    <div class="flex justify-between items-center text-[9pt] mb-0.5">
+                        <span class="font-medium text-slate-800">Inglés</span>
+                        <span class="text-[8pt] text-slate-400">Básico (A2)</span>
                     </div>
-                    <div class="lang-bar-container">
-                        <div class="lang-bar" style="width: 30%"></div>
+                    <div class="w-full h-1 bg-slate-200 rounded-full mb-0.5">
+                        <div class="lang-bar h-full rounded-full bg-gradient-to-r from-accent to-accent-light" style="width: 30%"></div>
                     </div>
-                    <div style="font-size: 7.5pt; color: var(--text-light); margin-top: -4px;">
-                        Lectura de documentación técnica
-                    </div>
+                    <p class="text-[7.5pt] text-slate-400 mt-0.5">Lectura de documentación técnica</p>
                 </section>
 
-                <!-- INFO ADICIONAL -->
-                <section class="section">
-                    <h2 class="section-title">Información Adicional</h2>
-                    <div class="info-item">
-                        <span class="info-icon">✓</span>
-                        <span>Título validado para ejercicio profesional en Perú</span>
+                <!-- INFORMACIÓN ADICIONAL -->
+                <section class="mb-5">
+                    <h2 class="text-[9.5pt] font-bold text-primary uppercase tracking-wide border-b-2 border-accent pb-1.5 mb-3">
+                        Información Adicional
+                    </h2>
+                    <div class="space-y-1.5">
+                        <div class="text-[8.5pt] text-slate-500 flex items-start gap-1.5 leading-snug">
+                            <span class="text-accent text-[9pt] flex-shrink-0 mt-px">✓</span>
+                            <span>Título validado para ejercicio profesional en Perú</span>
+                        </div>
+                        <div class="text-[8.5pt] text-slate-500 flex items-start gap-1.5 leading-snug">
+                            <span class="text-accent text-[9pt] flex-shrink-0 mt-px">✓</span>
+                            <span>Disponibilidad inmediata</span>
+                        </div>
+                        <div class="text-[8.5pt] text-slate-500 flex items-start gap-1.5 leading-snug">
+                            <span class="text-accent text-[9pt] flex-shrink-0 mt-px">✓</span>
+                            <span>Modalidad presencial, remoto o híbrido</span>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-icon">✓</span>
-                        <span>Disponibilidad inmediata</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-icon">✓</span>
-                        <span>Modalidad presencial, remoto o híbrido</span>
-                    </div>
-
                 </section>
 
                 <!-- REFERENCIAS -->
-                <section class="section">
-                    <h2 class="section-title">Referencias</h2>
-                    <div style="font-size: 8.5pt; color: var(--text-medium);">
-                        Disponibles a solicitud.
-                    </div>
+                <section>
+                    <h2 class="text-[9.5pt] font-bold text-primary uppercase tracking-wide border-b-2 border-accent pb-1.5 mb-3">
+                        Referencias
+                    </h2>
+                    <p class="text-[8.5pt] text-slate-500">Disponibles a solicitud.</p>
                 </section>
 
             </aside>
+
         </div>
 
         <!-- FOOTER -->
-        <div class="footer">
+        <div class="text-center py-3 px-6 text-[8pt] text-slate-400 border-t border-slate-200">
             Breña, Lima — Abril 2026
         </div>
 
     </div>
+
 </body>
 </html>
