@@ -14,3 +14,4 @@ Este es el punto central para todos los materiales de la asignatura de Informát
 * [Juego Vaca y Toro](/juego-vaca-toro.html)
 * [🛒 Prototipo Tienda](/prototipo/index.html)
 * [Sobre este sitio](/about.html)
+* [CV](/cv.html)
