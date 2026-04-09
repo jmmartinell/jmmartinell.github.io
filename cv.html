@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - José Manuel Martinell Reynaldo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2b4c7e;
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-subtle: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: #e2e8f0;
+            line-height: 1.5;
+            font-size: 10pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 20px auto;
+            background: var(--white);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 32px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .header h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header .subtitle {
+            font-size: 11pt;
+            font-weight: 300;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 9pt;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            min-width: 240px;
+        }
+
+        .header-right .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .header-right .contact-icon {
+            font-size: 10pt;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* ===== BODY ===== */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            min-height: 0;
+        }
+
+        /* ===== MAIN COLUMN ===== */
+        .main-column {
+            padding: 28px 32px 32px 40px;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            background: var(--bg-subtle);
+            padding: 28px 24px 32px 20px;
+            border-left: 1px solid var(--border);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar .section-title {
+            font-size: 9.5pt;
+            letter-spacing: 1px;
+        }
+
+        /* ===== PROFILE ===== */
+        .profile-text {
+            font-size: 9.5pt;
+            color: var(--text-medium);
+            line-height: 1.65;
+            text-align: justify;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .experience-item {
+            margin-bottom: 16px;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .exp-title {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .exp-date {
+            font-size: 8.5pt;
+            color: var(--accent);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-company {
+            font-size: 9pt;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .exp-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-list li {
+            font-size: 9pt;
+            color: var(--text-medium);
+            padding-left: 14px;
+            position: relative;
+            margin-bottom: 2px;
+            line-height: 1.55;
+        }
+
+        .exp-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-light);
+            font-size: 8pt;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-degree {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .edu-school {
+            font-size: 9pt;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .edu-date {
+            font-size: 8.5pt;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .edu-thesis {
+            font-size: 8.5pt;
+            color: var(--text-medium);
+            margin-top: 3px;
+            line-height: 1.5;
+        }
+
+        .edu-thesis strong {
+            font-weight: 500;
+        }
+
+        .edu-note {
+            font-size: 8.5pt;
+            color: var(--accent);
+            font-weight: 500;
+            margin-top: 3px;
+        }
+
+        /* ===== ALUMNO AYUDANTE ===== */
+        .ayudante-item {
+            margin-bottom: 6px;
+        }
+
+        .ayudante-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .ayudante-subject {
+            font-size: 9pt;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .ayudante-detail {
+            font-size: 8.5pt;
+            color: var(--text-medium);
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .ayudante-detail::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-light);
+            font-size: 8pt;
+        }
+
+        /* ===== PROJECTS ===== */
+        .project-item {
+            margin-bottom: 14px;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-name {
+            font-size: 9.5pt;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .project-status {
+            font-size: 7.5pt;
+            background: var(--accent);
+            color: white;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+            margin-left: 4px;
+        }
+
+        .project-desc {
+            font-size: 8.5pt;
+            color: var(--text-medium);
+            line-height: 1.5;
+            margin-top: 2px;
+        }
+
+        /* ===== SIDEBAR SKILLS ===== */
+        .skill-category {
+            margin-bottom: 12px;
+        }
+
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-label {
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .skill-tag {
+            font-size: 7.5pt;
+            background: var(--white);
+            border: 1px solid var(--border);
+            color: var(--text-medium);
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 400;
+        }
+
+        .skill-tag.strong {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* ===== SIDEBAR LANGUAGES ===== */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 9pt;
+        }
+
+        .lang-name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .lang-level {
+            font-size: 8pt;
+            color: var(--text-light);
+        }
+
+        .lang-bar-container {
+            width: 100%;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            margin-top: 2px;
+            margin-bottom: 10px;
+        }
+
+        .lang-bar {
+            height: 100%;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+        }
+
+        /* ===== SIDEBAR INFO ===== */
+        .info-item {
+            font-size: 8.5pt;
+            color: var(--text-medium);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            line-height: 1.5;
+        }
+
+        .info-item .info-icon {
+            color: var(--accent);
+            font-size: 9pt;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 12px 40px;
+            font-size: 8pt;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+                font-size: 10pt;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .sidebar {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .skill-tag.strong {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .project-status {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .lang-bar-container, .lang-bar {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            @page {
+                margin: 0;
+                size: A4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="header-left">
+                <h1>José Manuel Martinell Reynaldo</h1>
+                <div class="subtitle">Ingeniero en Ciencias Informáticas · Desarrollador Web</div>
+            </div>
+            <div class="header-right">
+                <div class="contact-item">
+                    <span>martinell.reynaldo@gmail.com</span>
+                    <span class="contact-icon">✉</span>
+                </div>
+                <div class="contact-item">
+                    <span>+51 960 903 221</span>
+                    <span class="contact-icon">☎</span>
+                </div>
+                <div class="contact-item">
+                    <span>Breña, Lima, Perú</span>
+                    <span class="contact-icon">⌂</span>
+                </div>
+                <div class="contact-item">
+                    <span>CE: 004-2026-00178</span>
+                    <span class="contact-icon">◆</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== BODY ===== -->
+        <div class="cv-body">
+
+            <!-- ===== MAIN COLUMN ===== -->
+            <main class="main-column">
+
+                <!-- PERFIL PROFESIONAL -->
+                <section class="section">
+                    <h2 class="section-title">Perfil Profesional</h2>
+                    <p class="profile-text">
+                        Ingeniero en Ciencias Informáticas con sólida formación en desarrollo de aplicaciones web utilizando PHP, Laravel y CodeIgniter. Experiencia en el diseño e implementación de sistemas de gestión con bases de datos relacionales y APIs REST. Cuatro años de trayectoria como docente de informática y mentor en proyectos de ingeniería de software, lo que me ha permitido desarrollar habilidades de comunicación técnica, liderazgo y gestión de proyectos. Profesional autodidacta, orientado a la resolución de problemas y en constante aprendizaje de nuevas tecnologías como React e inteligencia artificial aplicada. Busco integrarme a un equipo de desarrollo web donde pueda aportar mis conocimientos técnicos y continuar mi crecimiento profesional en un entorno colaborativo.
+                    </p>
+                </section>
+
+                <!-- EXPERIENCIA PROFESIONAL -->
+                <section class="section">
+                    <h2 class="section-title">Experiencia Profesional</h2>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <span class="exp-title">Docente de Informática</span>
+                            <span class="exp-date">Ene 2022 – Ene 2026</span>
+                        </div>
+                        <div class="exp-company">IPU Julio Antonio Mella — Granma, Cuba</div>
+                        <ul class="exp-list">
+                            <li>Impartición de clases de programación y herramientas digitales a más de 120 estudiantes de preparatoria.</li>
+                            <li>Administración de recursos tecnológicos y coordinación del nodo informático institucional.</li>
+                            <li>Asesoría técnica y metodológica en 8 proyectos de culminación de estudios (tesis), abarcando sistemas de gestión de vacunación, facturación de servicios públicos, control de inventarios y gestión tributaria.</li>
+                            <li>Desarrollo de material didáctico adaptado para la enseñanza de fundamentos de programación.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <span class="exp-title">Alumno Ayudante — Cátedra Universitaria</span>
+                            <span class="exp-date">2018 – 2023</span>
+                        </div>
+                        <div class="exp-company">Universidad de Granma — Cuba</div>
+                        <div class="ayudante-item">
+                            <div class="ayudante-subject">Diseño y Programación Orientada a Objetos (2018–2019)</div>
+                            <div class="ayudante-detail">Tutorías y creación de material didáctico en C++ y patrones de diseño.</div>
+                        </div>
+                        <div class="ayudante-item">
+                            <div class="ayudante-subject">Bases de Datos (2020–2021)</div>
+                            <div class="ayudante-detail">Asistencia en laboratorios de SQL y normalización de bases de datos.</div>
+                        </div>
+                        <div class="ayudante-item">
+                            <div class="ayudante-subject">Ingeniería de Software I, II y III (2021–2023)</div>
+                            <div class="ayudante-detail">Mentoría en proyectos de ciclo de vida de software: XP, UML y pruebas de calidad.</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PROYECTOS -->
+                <section class="section">
+                    <h2 class="section-title">Proyectos Destacados</h2>
+
+                    <div class="project-item">
+                        <div>
+                            <span class="project-name">Sistema de Gestión para Establecimiento Comercial</span>
+                        </div>
+                        <div class="project-tech">Laravel · MySQL · Tailwind CSS · API REST</div>
+                        <div class="project-desc">
+                            Aplicación web integral para la gestión de ventas, inventario y operaciones de un establecimiento de entretenimiento. Incluye módulos de punto de venta, control de stock, gestión de productos y generación de reportes.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div>
+                            <span class="project-name">Plataforma de Tutor Educativo Virtual con IA</span>
+                            <span class="project-status">En desarrollo</span>
+                        </div>
+                        <div class="project-tech">React · Node.js · Inteligencia Artificial</div>
+                        <div class="project-desc">
+                            Proyecto colaborativo con equipo internacional. Plataforma educativa que permite a docentes crear cursos personalizados, con seguimiento inteligente del progreso estudiantil mediante inteligencia artificial y analíticas avanzadas para el profesor.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div>
+                            <span class="project-name">Sistema de Gestión de Materiales de Construcción</span>
+                        </div>
+                        <div class="project-tech">CodeIgniter · MySQL — Proyecto de Tesis</div>
+                        <div class="project-desc">
+                            Sistema web para el control y seguimiento del gasto de materiales en empresa constructora con múltiples brigadas de trabajo. Base de datos relacional de más de 15 tablas con gestión de insumos por unidad operativa.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FORMACIÓN ACADÉMICA -->
+                <section class="section">
+                    <h2 class="section-title">Formación Académica</h2>
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <span class="edu-degree">Ingeniero en Ciencias Informáticas</span>
+                            <span class="edu-date">2017 – 2023</span>
+                        </div>
+                        <div class="edu-school">Universidad de Granma — Cuba</div>
+                        <div class="edu-thesis">
+                            <strong>Tesis:</strong> "Sistema Informático para la gestión de información en el Departamento Técnico Productivo de la Brigada #3 de la Empresa Construcción y Montaje de Granma."
+                        </div>
+                        <div class="edu-note">✓ Título validado y apostillado para ejercicio profesional en Perú</div>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- ===== SIDEBAR ===== -->
+            <aside class="sidebar">
+
+                <!-- COMPETENCIAS TÉCNICAS -->
+                <section class="section">
+                    <h2 class="section-title">Competencias Técnicas</h2>
+
+                    <div class="skill-category">
+                        <div class="skill-label">Lenguajes</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag strong">PHP</span>
+                            <span class="skill-tag strong">JavaScript</span>
+                            <span class="skill-tag strong">SQL</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-label">Frameworks Backend</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag strong">Laravel</span>
+                            <span class="skill-tag strong">CodeIgniter</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">FastAPI</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-label">Frontend</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-label">Bases de Datos</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag strong">MySQL</span>
+                            <span class="skill-tag">SQLite</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-label">Herramientas</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git / GitHub</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">APIs REST</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-label">Metodologías</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">XP</span>
+                            <span class="skill-tag">UML</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-label">Otros</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">IA Aplicada</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- IDIOMAS -->
+                <section class="section">
+                    <h2 class="section-title">Idiomas</h2>
+                    <div class="lang-item">
+                        <span class="lang-name">Español</span>
+                        <span class="lang-level">Nativo</span>
+                    </div>
+                    <div class="lang-bar-container">
+                        <div class="lang-bar" style="width: 100%"></div>
+                    </div>
+                    <div class="lang-item">
+                        <span class="lang-name">Inglés</span>
+                        <span class="lang-level">Básico (A2)</span>
+                    </div>
+                    <div class="lang-bar-container">
+                        <div class="lang-bar" style="width: 30%"></div>
+                    </div>
+                    <div style="font-size: 7.5pt; color: var(--text-light); margin-top: -4px;">
+                        Lectura de documentación técnica
+                    </div>
+                </section>
+
+                <!-- INFO ADICIONAL -->
+                <section class="section">
+                    <h2 class="section-title">Información Adicional</h2>
+                    <div class="info-item">
+                        <span class="info-icon">✓</span>
+                        <span>Título validado para ejercicio profesional en Perú</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✓</span>
+                        <span>Disponibilidad inmediata</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✓</span>
+                        <span>Modalidad presencial, remoto o híbrido</span>
+                    </div>
+
+                </section>
+
+                <!-- REFERENCIAS -->
+                <section class="section">
+                    <h2 class="section-title">Referencias</h2>
+                    <div style="font-size: 8.5pt; color: var(--text-medium);">
+                        Disponibles a solicitud.
+                    </div>
+                </section>
+
+            </aside>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            Breña, Lima — Abril 2026
+        </div>
+
+    </div>
+</body>
+</html>
